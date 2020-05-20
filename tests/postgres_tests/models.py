@@ -1,9 +1,10 @@
 from django.db import models
 
 from .fields import (
-    ArrayField, BigIntegerRangeField, CICharField, CIEmailField, CITextField,
-    DateRangeField, DateTimeRangeField, DecimalRangeField, EnumField,
-    HStoreField, IntegerRangeField, SearchVectorField,
+    ArrayField, BigIntegerRangeField, BigSerialIntegerField, CICharField,
+    CIEmailField, CITextField, DateRangeField, DateTimeRangeField, DecimalRangeField,
+    EnumField, HStoreField, IntegerRangeField, SearchVectorField, SerialIntegerField,
+    SmallSerialIntegerField
 )
 
 
@@ -190,3 +191,15 @@ class HotelReservation(PostgreSQLModel):
     start = models.DateTimeField()
     end = models.DateTimeField()
     cancelled = models.BooleanField(default=False)
+
+
+class BigSerialTestModel(PostgreSQLModel):
+    value = BigSerialIntegerField()
+
+
+class SerialTestModel(PostgreSQLModel):
+    value = SerialIntegerField()
+
+
+class SmallSerialTestModel(PostgreSQLModel):
+    value = SmallSerialIntegerField()

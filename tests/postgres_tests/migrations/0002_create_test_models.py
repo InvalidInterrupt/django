@@ -1,9 +1,10 @@
 from django.db import migrations, models
 
 from ..fields import (
-    ArrayField, BigIntegerRangeField, CICharField, CIEmailField, CITextField,
-    DateRangeField, DateTimeRangeField, DecimalRangeField, EnumField,
-    HStoreField, IntegerRangeField, SearchVectorField,
+    ArrayField, BigIntegerRangeField, BigSerialIntegerField, CICharField, CIEmailField,
+    CITextField, DateRangeField, DateTimeRangeField, DecimalRangeField, EnumField,
+    HStoreField, IntegerRangeField, SearchVectorField, SerialIntegerField,
+    SmallSerialIntegerField,
 )
 from ..models import TagField
 
@@ -296,6 +297,36 @@ class Migration(migrations.Migration):
                 ('start', models.DateTimeField()),
                 ('end', models.DateTimeField()),
                 ('cancelled', models.BooleanField(default=False)),
+            ],
+            options={
+                'required_db_vendor': 'postgresql',
+            },
+        ),
+        migrations.CreateModel(
+            name='BigSerialTestModel',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('value', BigSerialIntegerField()),
+            ],
+            options={
+                'required_db_vendor': 'postgresql',
+            },
+        ),
+        migrations.CreateModel(
+            name='SerialTestModel',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('value', SerialIntegerField()),
+            ],
+            options={
+                'required_db_vendor': 'postgresql',
+            },
+        ),
+        migrations.CreateModel(
+            name='SmallSerialTestModel',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('value', SmallSerialIntegerField()),
             ],
             options={
                 'required_db_vendor': 'postgresql',

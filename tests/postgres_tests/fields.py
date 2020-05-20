@@ -8,9 +8,10 @@ from django.db import models
 
 try:
     from django.contrib.postgres.fields import (
-        ArrayField, BigIntegerRangeField, CICharField, CIEmailField,
-        CITextField, DateRangeField, DateTimeRangeField, DecimalRangeField,
-        HStoreField, IntegerRangeField,
+        ArrayField, BigIntegerRangeField, BigSerialIntegerField, CICharField,
+        CIEmailField, CITextField, DateRangeField, DateTimeRangeField,
+        DecimalRangeField, HStoreField, IntegerRangeField, SerialIntegerField,
+        SmallSerialIntegerField,
     )
     from django.contrib.postgres.search import SearchVectorField
 except ImportError:
@@ -28,6 +29,7 @@ except ImportError:
 
     ArrayField = DummyArrayField
     BigIntegerRangeField = models.Field
+    BigSerialIntegerField = models.Field
     CICharField = models.Field
     CIEmailField = models.Field
     CITextField = models.Field
@@ -37,6 +39,8 @@ except ImportError:
     HStoreField = models.Field
     IntegerRangeField = models.Field
     SearchVectorField = models.Field
+    SerialIntegerField = models.Field
+    SmallSerialIntegerField = models.Field
 
 
 class EnumField(models.CharField):
