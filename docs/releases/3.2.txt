@@ -70,7 +70,17 @@ Minor features
 :mod:`django.contrib.postgres`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ...
+* A new :class:`~django.db.models.expressions.Default` expression has
+  been added to allow setting a field to the default value stored in the
+  database. This is equivalent to using the ``DEFAULT`` clause in an ``INSERT``
+  or ``UPDATE`` SQL statement.
+
+* :class:`~django.contrib.postgres.fields.SerialField`,
+  :class:`~django.contrib.postgres.fields.BigSerialField`, and
+  :class:`~django.contrib.postgres.fields.SmallSerialField` have been added
+  corresponding to their respective PostgreSQL database types. They behave much
+  like :class:`~django.db.models.AutoField`, except that they do not need to be
+  a primary key.
 
 :mod:`django.contrib.redirects`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
