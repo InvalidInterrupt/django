@@ -123,6 +123,9 @@ class SimpleDatabaseOperationTests(SimpleTestCase):
         with self.assertRaisesMessage(NotImplementedError, msg):
             self.ops.json_cast_text_sql(None)
 
+    def test_unknown_integer_field_range(self):
+        self.assertEqual(self.ops.integer_field_range('unknown_type'), (None, None))
+
 
 class DatabaseOperationTests(TestCase):
     def setUp(self):
